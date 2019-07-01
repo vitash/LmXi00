@@ -1,0 +1,10 @@
+<ColModel
+    *Name<"">
+    *Field<>
+>
+
+<FnName()<Obj1,Obj2>
+    Obj1 = 100
+    Obj2 = 2000.2
+>
+<Get1() :: = 33>
