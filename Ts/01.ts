@@ -1,15 +1,4 @@
-const msg = '2';
 
-interface C{    
-    err:string;
-    code?:number;
-}
-let a:C={err:''};
-
-function fn1<T>(str:{err:string}){
-   str.err= '111';
-}
-fn1(a)
 
 type Require<T> = {
     [P in keyof T]-?: T[P];
@@ -27,9 +16,6 @@ ss123_-@qq.com
 //http://127.0.0.1:8080/#/Start/course/437
 //http://127.0.0.1:8080/#/Start/institution/3
 
-// text-shadow: 2px 2px 5px white;
-// axios.post('/api/forgotPassword',{email: 'vista.huang@selmit.com'})
-// const VueCarousel = require('vue-carousel');
 // \w 中文不能匹配 
 const regEmail = /^[\w.-]{1,64}@([a-z0-9-]{1,200}\.){1,5}[a-z]{1,6}$/;
 export function isEmail(email:string){
@@ -37,14 +23,9 @@ export function isEmail(email:string){
 }
 // console.log(isEmail('103@gcom'))
 
-//clientWidth
-//layerX
-class Animal {
-  protected feet: number = 3;
-}
 
 
-
+http://localhost:7003/api/m/redpackevent/GetRedpackEventSummary/9
 
 
 
