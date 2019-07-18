@@ -25,7 +25,6 @@ export function isEmail(email:string){
 
 
 
-http://localhost:7003/api/m/redpackevent/GetRedpackEventSummary/9
 
 
 

@@ -738,3 +738,34 @@ declare function mergeEnums<T extends any[]>(...arg: T): UnionToIntersection<T[n
       10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 
   type Tuple = UnionToTuple<Union43>;
 }
+{
+  type FnNames<T> = {[P in keyof T]: T[P] extends Function ? P : never }[keyof T];
+
+  type obj = { 
+    p : string,
+    k1: (s: string) => string,
+    k2: (n: number) => number,
+    k3: (n: number, s: string) => number,
+  };
+
+  function fn2<K extends FnNames<obj>>(key: K){
+    const o:obj = 1 as any;
+    return o[key]
+  }
+  fn2("k2")(3)
+  fn2("k3")(3,"s")
+
+  type T4 = FnNames<obj>
+  type T5 = obj[T4]
+  type T6 = Parameters<T5>
+  function fn1<K extends FnNames<obj>, F extends obj[K]>(key: K, ...values: Parameters<F>){
+    const o:obj = 1 as any;
+    o[key](...values)
+  }
+  fn1("k1", "va");
+  fn1("k2", 3);
+  fn1("k3", 3, "s");
+
+  
+
+}
