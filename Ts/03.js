@@ -1,4 +1,3 @@
-"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -17,20 +16,21 @@ function g() {
         console.log("g(): called");
     };
 }
-class C {
-    constructor(name) {
+var C = /** @class */ (function () {
+    function C(name) {
         this.name = name;
     }
-    method() {
+    C.prototype.method = function () {
         console.log("method");
-    }
-}
-__decorate([
-    f(),
-    g()
-], C.prototype, "method", null);
+    };
+    __decorate([
+        f(),
+        g()
+    ], C.prototype, "method");
+    return C;
+}());
 console.log("c1.name");
-let c1 = new C("ss");
-console.log(c1.name);
-c1.method()
-//# sourceMappingURL=03.js.map
+// var c1 = new C("ss");
+// console.log(c1.name);
+// c1.method();
+// c1.method();

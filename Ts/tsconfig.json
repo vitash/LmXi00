@@ -4,18 +4,12 @@
     "strict": true,
     "module": "commonjs",
     "lib": ["es2017", "dom"],
-    "sourceMap": false,
+    "sourceMap": true,
     "experimentalDecorators": true,
-    "allowJs": true
-    // ...
   },
 
   "include": [
     "./**/*.ts",
-    // "node_modules/@types/node/index.d.ts",
-    // "node_modules/@types/express/index.d.ts",
-    // "node_modules/@types/serve-static/index.d.ts",
-    // "node_modules/@types/body-parser/index.d.ts",
   ],
   "exclude": [
     "node_modules"
