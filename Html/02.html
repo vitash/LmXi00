@@ -1,0 +1,86 @@
+<style>
+    div {
+        border: 1px solid;
+    }
+    #div1 {
+        display: flex;
+    }
+    #div1 > input {
+        width: 100%;
+    }
+    #div1 > div {
+        width: 100%;
+        height: 100px;
+    }
+    #div1 > input + input {
+        border: 2px solid;        
+    }
+    #div1 > :first-child {
+        background-color: burlywood;
+    }
+    .ksClass > input {
+        background-color: #e28000;        
+    }
+</style>
+<div id="div1">
+    <div class="ksClass">
+        <input></input>
+        <input></input>
+        <input></input>
+    </div>
+    <input></input>
+    <input></input>
+</div>
+
+<style>
+    #div2 {
+        display: flex;
+        flex-direction: column;
+        height: 200px;;
+        flex-wrap: wrap;
+    }
+    #div2 > input {
+        width: 100%;
+    }
+    #div2 > div {
+        height: 40px;
+        width: 100px;
+    }
+    body #div2 {
+        color: green;
+    }
+
+    html #div2 {
+        color: purple;
+    }
+</style>
+<div id="div2">
+    <div>
+        <input></input>
+        <input></input>
+        <input></input>
+    </div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+<table>
+    <tbody>
+        <div>
+            <tr>
+                <td>The table body</td>
+                <td>with two columns</td>
+            </tr>
+        </div>
+        <div>
+            <tr>
+                <td>The table body</td>
+                <td>with two columns</td>
+            </tr>
+        </div>
+    </tbody>
+</table>

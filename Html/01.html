@@ -1,21 +1,37 @@
 <style>
-    section {
+    div {
+        border: 1px black solid;
+        height: 100px;
+    }
+    #div1 {
         display: flex;
-        width: 800px;
+        resize: horizontal;
+        overflow: hidden;
+        padding: 20px;
     }
-    div { 
-        border: 1px solid ;
+    #div1 > * {
+        flex: 1;
     }
-    .left-side,
-    .right-side {width: 200px;}
-    .content {
-        flex-grow: 1;
-        height: 200px;
+    #div11, #div13 {
+        overflow: auto hidden;
     }
-    
-  </style>
-  <section>
-    <div class="left-side"></div>
-    <div class="content"></div>
-    <div class="right-side"></div>
-  </section>
+</style>
+<div id="div1">
+    <div id="div11">
+        <div style="min-width: 300px; background-color: #7acdee;">
+            当 #div1 缩小到 600px 以下时，#div11、#div13 出现滚动条，包裹住这个 300px 的div，#div1 不要出现滚动，也不要内容超出 width
+        </div>
+    </div>
+    <div style="flex-grow: 0;">
+        <div style="width: 30px; background-color: #DDD;"></div>
+    </div>
+    <div id="div13">
+        <div style="min-width: 300px; background-color: #7acdee;"></div>
+    </div>
+</div>
+<script>
+    const div11 = document.getElementById("div11")
+    div11.addEventListener("click", () => {
+        window.open("https://webbgd.top/pz/ttt.html")
+    })
+</script>
