@@ -1134,4 +1134,137 @@ declare function mergeEnums<T extends any[]>(...arg: T): UnionToIntersection<T[n
     c
   }
 
+} {
+  const f1 = (arr: { k: 1, v: 2 }[]) => {
+    return (arr.find(x => x.k) || {}).v
+  }
+  function fn1(obj?: { k: 1, v: 2 }) {
+    return (obj || {}).v
+  }
+
+  type A = { k: 1, v: 2 } | undefined | {}
+  type A2 = A["k"]
+  type B = [1, ...2[]]
+} {
+  class A {
+    static B = class B { }
+  }
+} {
+  type Arr<T> = [T, ...T[]]
+  function fn1(a: Arr<number>, b: number[]) {
+    a = b;
+  }
 }
+{
+  type Exe = (a: number, b: number) => number
+  let exeAdd: Exe = (a, b) => a + b
+  let exeDiv: Exe = (a, b) => a / b
+} {
+  class A {
+    get a() {
+      return 3
+    }
+    set a(x) {
+
+    }
+  }
+} {
+  type Exclude<T, U> = T extends U ? never : T
+  type T1 = Exclude<1 | 2 | 3, 3>
+  type Pick2<T, K extends keyof T> = { [P in K]: T[P] }
+  type T2 = Pick<{ a: 1, c: 2, d: 3 }, "a" | "d">
+} {
+  const a = new Promise<number>(res => {
+    res()
+  })
+} {
+
+  const f1 = (a: 1 | 2 | 3) => {
+    return 1 as 1 | 2
+  }
+  const f2: F1 = f1
+
+  type F1 = (a: 1 | 2, b: 3 | 4) => 1 | 2 | 3 | 4
+} {
+  type Fn = ((a: 1) => 1) & ((a: 2) => 2)
+
+  function fn2(a: 1): 1
+  function fn2(a: 2): 2
+  function fn2(a: 1 | 2): 1 | 2 {
+    return 1
+  }
+  function test1(f1: Fn) {
+    return f1;
+  }
+
+  test1(((a: 1 | 2) => {
+    return 1 as 1 | 2
+  }) as Fn)
+
+} {
+  type Node<T = any> = { val: T, left?: Node, right?: Node }
+  function XmXuBmLi2(node?: Node) {
+    if (!node) return
+    XmXuBmLi2(node.left)
+    console.log(node)
+    XmXuBmLi2(node.right)
+  }
+  function XmXuBmLi(node: Node) {
+    const arr = [node]
+    let node1: Node | undefined
+    while ((node1 = arr.pop(), node)) {
+      console.log(node.val)
+      node.right && arr.push(node.right)
+      node.left && arr.push(node.left)
+    }
+  }
+  const root: Node = {
+    val: "A",
+    left: {
+      val: "B",
+      left: { val: "D" },
+      right: { val: "E" }
+    },
+    right: {
+      val: "C",
+      right: { val: "F" }
+    }
+  }
+} {
+  type NotReadonly<T> = {
+    - readonly [P in keyof T]: T[P]
+  }
+  type NotPartial<T> = {
+    [P in keyof T]-?: T[P]
+  }
+
+  type T1 = NotPartial<{ a?: 1, b?: 2 | undefined }>
+} {
+  type E<T, U> = T extends any ? T extends U ? never : T : never;
+  type E1 = E<1 | 2 | 3, 1>
+
+  const chace = {
+    a: [] as number[],
+    b: [] as string[]
+  } as const
+} {
+  const obj = { a: 3, b: 4 }
+  for (const k in obj) {
+    obj[k] = 3;
+  }
+} {
+  const g = function* () {
+    let a: Date = yield 3
+    return "ds"
+  }
+  let a = g();
+  a.return
+} {
+}
+
+
+
+
+
+
+
