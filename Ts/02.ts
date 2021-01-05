@@ -1260,6 +1260,37 @@ declare function mergeEnums<T extends any[]>(...arg: T): UnionToIntersection<T[n
   let a = g();
   a.return
 } {
+  // "".replaceAll()
+
+
+
+
+
+
+  type A1 = {
+    [k in `${K1}-d`]: string
+  }
+  type K1 = "A" | "B"
+  interface A2 {
+    [s: string]: string
+  }
+} {
+
+  function fn1(a: A): { [K in A["key"]]?: number } {
+    return { [a.key]: 34 }
+  }
+  interface A {
+    key: "A" | "B" | "C"
+  }
+} {
+  interface FA {
+    (): { b: 3 }
+    new(): { a: 3 }
+  }
+  function fn1(a: FA) {
+    let o1 = a();
+    let o2 = new a();
+  }
 }
 
 

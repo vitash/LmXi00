@@ -61,4 +61,7 @@ replicate1 n x
   | n <= 0 = []
   | otherwise = x : replicate1 (n -1) x
 
+minimum3 :: (Ord a) => [a] -> a
+minimum3 = foldl1 (\acc x -> if x > acc then x else acc)
+
 -- elem3 = foldl 

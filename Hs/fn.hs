@@ -79,5 +79,13 @@ sum2 = foldl2 (+) 0
 
 reverse2 = foldl2 (flip (:)) []
 -- reverse2 = foldl2 (\acc x -> x:acc) []
+-- reverse2 = foldr (\acc x -> acc ++ x) []
+-- reverse2 = foldr (++) []
+
+scanl' _ acc [] = [acc]
+scanl' f acc (x:xs) = acc : scanl' f (f acc x) xs
+
+foldl1' f (x:xs) = foldl2 f x xs
+
 
 --
