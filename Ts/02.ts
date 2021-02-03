@@ -1,3 +1,5 @@
+export { }
+
 class Book {
   name: string = "";
   price: number = 0;
@@ -1291,6 +1293,139 @@ declare function mergeEnums<T extends any[]>(...arg: T): UnionToIntersection<T[n
     let o1 = a();
     let o2 = new a();
   }
+} {
+  function f1(f2: (a: number, b: string) => number) {
+
+  }
+  f1(() => 3)
+
+} {
+  type Ids = typeof test["fonts"][number]["id"]
+
+  const test = { fonts: [{ id: 1 }, { id: 2 }] } as const;
+
+} {
+  let a = [
+    [1, 2, 22, 222],
+    [3, 4, 44, 444],
+    [5, 6]
+  ].reduce((xs, x) => {
+    xs.unshift(x)
+    return xs
+  }, [] as number[][])
+  let b = [
+    [1, 3, 5],
+    [2, 4, 6],
+    [22, 44],
+    [222, 444]
+  ]
+
+} {
+  interface ElTree {
+    label: string
+    children: string
+    disabled: boolean
+    isLeaf: boolean
+    // ...
+  }
+  interface MyNode {
+    id: string
+    name: string
+    childNodes: MyNode[]
+  }
+} {
+  interface MyNode {
+    id: string
+    name: string
+    childNodes: MyNode[]
+  }
+  // keyof MyNode，内部依赖了 MyNode 类型，搞反了
+  interface ElTree1 {
+    label: keyof MyNode
+    children: keyof MyNode
+    // ...
+  }
+  interface ElTree<T> {
+    label: keyof T
+    children: keyof T
+    // ...
+  }
+  let props: ElTree<MyNode> = { label: "name", children: "childNodes" }
+  let a: Iterable<number> = new Set([3, 4])
+  function MyComponent<T extends { name: string, childNodes: T[] }>(data: T) {
+
+  }
+} {
+  interface MyNode {
+    id: string
+    name: string
+    childNodes: MyNode[]
+  }
+  interface ElTree<T> {
+    label: keyof T
+    children: keyof T
+  }
+
+  interface Data {
+    name: string,
+    child: Data[]
+  }
+  let props: ElTree<Data> = { label: "name", children: "child" }
+  function MyComponent<T extends { name: string, child: T[] }>(data: T) {
+
+  }
+} {
+  type KeyOfValue<T, V> = { [K in keyof T]: T[K] extends V ? K : never }[keyof T]
+  interface ElTree<T> {
+    label: KeyOfValue<T, string>
+    children: KeyOfValue<T, Iterable<T> | undefined>
+  }
+  function MyComponent<T>(data: T, props: ElTree<T>) {
+
+  }
+
+  interface Data {
+    name: string,
+    child: Data[]
+  }
+  let data: Data = {
+    name: "1",
+    child: [{ name: "2.1", child: [] }, { name: "2.2", child: [] }]
+  }
+  MyComponent(data, {
+    label: "name",
+    children: "child"
+  })
+} {
+
+  function props<Name extends string, Children extends string>(): { [K in Name]: string } & { [K in Children]: unknown[] }
+} {
+  function wrap(a: ""): void;
+  function wrap(a: string): number;
+  function wrap(a: string): number {
+    return +a;
+  }
+  let a = wrap("")
+  let b: number = wrap("3")
+
+  type NotEmptyStr<T> = T extends '' ? "不能为空" : T
+  function wrap2<T extends string>(a: NotEmptyStr<T>) {
+    let b: number = wrap(a)
+  }
+  function wrap3<T extends string>(a: string) {
+    let b = wrap2(a)
+  }
+  wrap2("")
+
+} {
+  function fn1(a: number, b: string, c: boolean) { }
+  function fn2() {
+    let a = 2
+    let b = "3"
+    return [a, b] as const
+  }
+
+  fn1(...fn2(), true)
 }
 
 

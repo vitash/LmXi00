@@ -1,4 +1,3 @@
-
 repeat1 x = x : repeat1 x
 
 zip1 [] _ = []
@@ -50,10 +49,10 @@ maximum1 (x : xs)
     tailMax = maximum1 xs
 
 sum1 [] = 0
-sum1 (x: xs) = x + sum xs
+sum1 (x : xs) = x + sum xs
 
 elem1 _ [] = False
-elem1 e (x: xs)
+elem1 e (x : xs)
   | e == x = True
   | otherwise = elem1 e xs
 
@@ -64,4 +63,19 @@ replicate1 n x
 minimum3 :: (Ord a) => [a] -> a
 minimum3 = foldl1 (\acc x -> if x > acc then x else acc)
 
--- elem3 = foldl 
+-- elem3 = foldl
+
+transpose'' :: [[a]] -> [[a]]
+transpose'' [] = []
+transpose'' ([] : xss) = transpose'' xss
+transpose'' ((x : xs) : xss) = (x : [h | (h : _) <- xss]) : transpose'' (xs : [t | (_ : t) <- xss])
+
+foldr1'' :: (t -> t -> t) -> [t] -> t
+foldr1'' _ [x] = x
+foldr1'' f (x : xs) = f x $ foldr1'' f xs
+
+foldl'' f acc [] = acc
+foldl'' f acc (x : xs) = foldl'' f (f acc x) xs
+
+reverse'' [] = []
+reverse'' (x : xs) = reverse'' xs ++ [x]
